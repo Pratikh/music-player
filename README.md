@@ -1,2 +1,2 @@
 # music-player
-Music player functionality
+Music player functionality.
