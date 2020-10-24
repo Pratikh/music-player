@@ -1,11 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import PlayButton from './controllers/PlayButton'
+import PreviousAndNextButton from './controllers/PreviousAndNextButton'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <PreviousAndNextButton type='previous'/>
+        <PlayButton />
+        <PreviousAndNextButton type='next'/>
       </header>
     </div>
   );
