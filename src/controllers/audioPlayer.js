@@ -7,7 +7,6 @@ class AudioPlayer{
   }
 
   play(url){
-    // return  new Promise((resolve, reject)=>{
         const sound =   new Howl({
           src: url,
           autoplay: false,
@@ -17,19 +16,15 @@ class AudioPlayer{
           format:'mp4',
           onloaderror:()=>{
             console.error('Audio file is not loaded');
-            // reject();
           },
           onplayerror:()=>{
             console.error('On play error');
           },
           onplay:()=>{
             console.info('Audio started playing');
-            // onStart();
           },
           onend:()=>{
             console.info('Audio playing completed');
-            // onComplete();
-            // resolve();
           },
           onmute:()=>{
             console.info('Muted');
@@ -39,13 +34,9 @@ class AudioPlayer{
         sound.once('load', ()=>{
           id = sound.play();
           this.audioPlayId[id] = sound;
-          // onStart();
         });
         sound.once('end', ()=> { this.onAudioEnd(id)});
         return id;// user need to save if he wants to stop it.
-    // }).catch((e)=>{
-    //   console.log(e);
-    // });
   }
 
   // Once completed no need aobject ref
