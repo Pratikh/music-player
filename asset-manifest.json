@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/music-player/static/css/main.c90aceed.chunk.css",
-    "main.js": "/music-player/static/js/main.874f20b0.chunk.js",
-    "main.js.map": "/music-player/static/js/main.874f20b0.chunk.js.map",
+    "main.js": "/music-player/static/js/main.49a02264.chunk.js",
+    "main.js.map": "/music-player/static/js/main.49a02264.chunk.js.map",
     "runtime-main.js": "/music-player/static/js/runtime-main.0f02f19c.js",
     "runtime-main.js.map": "/music-player/static/js/runtime-main.0f02f19c.js.map",
     "static/js/2.08015346.chunk.js": "/music-player/static/js/2.08015346.chunk.js",
@@ -10,6 +10,7 @@
     "index.html": "/music-player/index.html",
     "static/css/main.c90aceed.chunk.css.map": "/music-player/static/css/main.c90aceed.chunk.css.map",
     "static/js/2.08015346.chunk.js.LICENSE.txt": "/music-player/static/js/2.08015346.chunk.js.LICENSE.txt",
+    "static/media/folder-open.610cbfaa.svg": "/music-player/static/media/folder-open.610cbfaa.svg",
     "static/media/pauseButton.cadf7947.svg": "/music-player/static/media/pauseButton.cadf7947.svg",
     "static/media/playButton.c49abbd7.svg": "/music-player/static/media/playButton.c49abbd7.svg",
     "static/media/previousButton.73c027af.svg": "/music-player/static/media/previousButton.73c027af.svg"
@@ -18,6 +19,6 @@
     "static/js/runtime-main.0f02f19c.js",
     "static/js/2.08015346.chunk.js",
     "static/css/main.c90aceed.chunk.css",
-    "static/js/main.874f20b0.chunk.js"
+    "static/js/main.49a02264.chunk.js"
   ]
 }
