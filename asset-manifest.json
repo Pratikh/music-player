@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c90aceed.chunk.css",
+    "main.js": "/static/js/main.874f20b0.chunk.js",
+    "main.js.map": "/static/js/main.874f20b0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9a28dac3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9a28dac3.js.map",
+    "static/js/2.08015346.chunk.js": "/static/js/2.08015346.chunk.js",
+    "static/js/2.08015346.chunk.js.map": "/static/js/2.08015346.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.c90aceed.chunk.css.map": "/static/css/main.c90aceed.chunk.css.map",
+    "static/js/2.08015346.chunk.js.LICENSE.txt": "/static/js/2.08015346.chunk.js.LICENSE.txt",
+    "static/media/pauseButton.cadf7947.svg": "/static/media/pauseButton.cadf7947.svg",
+    "static/media/playButton.c49abbd7.svg": "/static/media/playButton.c49abbd7.svg",
+    "static/media/previousButton.73c027af.svg": "/static/media/previousButton.73c027af.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9a28dac3.js",
+    "static/js/2.08015346.chunk.js",
+    "static/css/main.c90aceed.chunk.css",
+    "static/js/main.874f20b0.chunk.js"
+  ]
+}
