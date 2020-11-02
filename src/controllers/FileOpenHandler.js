@@ -1,5 +1,6 @@
 import React from 'react';
 import { audioPlayer } from './audioPlayer'
+import folderOpenIcon from '../svgButtonDesign/folder-open.svg'
 
 export default class FileOpenHandler extends React.Component{
   constructor(props){
@@ -20,15 +21,14 @@ export default class FileOpenHandler extends React.Component{
     for(let i = 0;i<target.files.length;i++){
       const file = target.files.item(i);
       const fileReader = new FileReader();
-      console.log('heree');
       let data = null;
       fileReader.addEventListener('load',()=>{
+        console.log('FILE ONLOAD',folderOpenIcon);
         data = fileReader.result;
-        // console.log(data);
-        audioPlayer.play(data)
       });
       fileReader.addEventListener('loadend',()=>{
         data = fileReader.result;
+        window.audioId =audioPlayer.play(data)
         console.log(' Load End');
       });
       fileReader.readAsDataURL(file);
@@ -39,7 +39,16 @@ export default class FileOpenHandler extends React.Component{
   render(){
     return(
       <div>
-        <input type='file' ref={this.fileDialogueRef} style={{display: "none"}} onChange={this.getSelectedFilesBinded} multiple  accept='audio/*' />
+        <input
+        type='file'
+        ref={this.fileDialogueRef}
+        style={{display: "none"}}
+        src={folderOpenIcon}
+        onChange={this.getSelectedFilesBinded}
+        onClick={(event)=> {
+               event.currentTarget.value = null
+          }}
+        multiple  accept='audio/*' />
         <button onClick={this.onButtonClickHandler}>Open File</button>
       </div>
     )

@@ -3,7 +3,7 @@ import { Howl } from 'howler';
 class AudioPlayer{
   constructor(){
     this.hawlerInstance = [];
-    this.audioPlayId = [];
+    this.audioPlayId = {};
   }
 
   play(url){
@@ -30,10 +30,11 @@ class AudioPlayer{
             console.info('Muted');
           }
         });
-        let id = 0;
+        let id = { id : null };
         sound.once('load', ()=>{
-          id = sound.play();
-          this.audioPlayId[id] = sound;
+          console.log('here');
+          id.id = sound.play();
+          this.audioPlayId[id.id] = sound;
         });
         sound.once('end', ()=> { this.onAudioEnd(id)});
         return id;// user need to save if he wants to stop it.
@@ -41,6 +42,7 @@ class AudioPlayer{
 
   // Once completed no need aobject ref
   onAudioEnd(id){
+    console.log('IN onAudioEnd,,,,,deleting ID');
     delete this.audioPlayId[id];
   }
 
@@ -51,6 +53,14 @@ class AudioPlayer{
 
   stopAll(){
     // Need to work on it.
+  }
+
+  pause(id){
+    this.audioPlayId[id].pause();
+  }
+
+  resume(id){
+    this.audioPlayId[id].play();
   }
 }
 
