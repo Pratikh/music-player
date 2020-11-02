@@ -10,8 +10,6 @@ on:
   pull_request:
     branches: [ main ]
 
-name: Build and Deploy
-on: [push]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
