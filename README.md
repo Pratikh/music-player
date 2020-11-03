@@ -1,7 +1,9 @@
-# [Music player :rocket:](https://pratikh.github.io/music-player)
+# [Music player :musical_note:](https://pratikh.github.io/music-player) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)]
 
-<p align="center">
-  <a href="https://github.com/marketplace/actions/deploy-to-github-pages">
-    <img width="150px" src="https://github.com/JamesIves/github-pages-deploy-action/raw/dev/assets/icon.png">
-  </a>
-</p>
+This React project is used to demonstrate below functionality:
+
+* Show basic audio player related functionality
+* Play local and URL audio using [HawlerJS](https://github.com/goldfire/howler.js#documentation)
+* Store and fetch audio files then play audios.
+
+For demo click on title text. Have fun :wink:
