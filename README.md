@@ -5,5 +5,5 @@
 </p>
 
 <h1 align="center">
-  Music player :rocket:
+  [Music player :rocket:](https://pratikh.github.io/music-player)
 </h1>
