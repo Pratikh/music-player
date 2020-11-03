@@ -1,4 +1,4 @@
-# [Music player :musical_note:](https://pratikh.github.io/music-player) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)]
+# [Music player :musical_note:](https://pratikh.github.io/music-player) &middot; ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 This React project is used to demonstrate below functionality:
 
