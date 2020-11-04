@@ -1,7 +1,9 @@
 import './App.css';
-import PlayButton from './controllers/PlayButton'
-import PreviousAndNextButton from './controllers/PreviousAndNextButton'
-import FileOpenHandler from './controllers/FileOpenHandler'
+
+import components from './components/index'
+
+const { PlayButton,PreviousAndNextButton,
+  FileOpenHandler,AudioFilesList} = components
 
 window.audioId = { id: null};
 
@@ -15,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <AudioFilesList></AudioFilesList>
       <FileOpenHandler />
       <PreviousAndNextButton type='previous'/>
         <PlayButton />

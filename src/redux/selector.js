@@ -1,0 +1,1 @@
+export const loadedFile = store => store.fileInput.files;
