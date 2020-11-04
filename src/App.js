@@ -14,7 +14,6 @@ window.audioId = { id: null};
   });
 
 function App() {
-  const hello = 'Hello'
   return (
     <div className="App">
       <header className="App-header">

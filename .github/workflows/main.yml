@@ -11,7 +11,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  Building-app-and-deploying-to-gihub-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
