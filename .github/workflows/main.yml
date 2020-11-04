@@ -19,13 +19,13 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Installing :package:
+      - name: Installing packages
         run: npm install
 
-      - name: Run linters
+      - name: Runing linters
         uses: wearerequired/lint-action@v1
 
-      - name: Installing :building_construction:
+      - name: Building
         run: npm run build
 
       - name: Deploy 🚀
