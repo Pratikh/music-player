@@ -1,4 +1,4 @@
-import { ADD_FILES, DELETE_FILES } from './actionTypes';
+import { ADD_FILES, DELETE_FILES,CLICKED } from './actionTypes';
 
 export function addFiles(content) {
     console.log(content);
@@ -13,8 +13,14 @@ export function addFiles(content) {
 export function deleteFiles(content) {
     return {
         type: DELETE_FILES,
-        payload: {
-            ...content
-        }
+        payload: content
+    }
+}
+
+export function updateClickedAudioItem(content){
+    console.log(content);
+    return {
+        type:CLICKED,
+        payload:content
     }
 }

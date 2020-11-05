@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 // import { audioPlayer } from '../controllers/audioPlayer'
 import folderOpenIcon from '../svgButtonDesign/folder-open.svg'
-import { addFiles } from '../redux/actions'
+import { addFiles } from '../redux/actions';
+import fileLoader from '../controllers/fileInputeLoader'
 
 class FileOpenHandler extends React.Component {
   constructor(props) {
@@ -20,26 +21,11 @@ class FileOpenHandler extends React.Component {
     this.fileDialogueRef.current.click();
   }
 
-  getSelectedFiles({ target }) {
-    let fileData = [];
-    for (let i = 0; i < target.files.length; i++) {
-      const file = target.files.item(i);
-      fileData.push({
-        fileName: file.name,
-        index: i,
-      })
-      const fileReader = new FileReader();
-      // let fileReadData = null;
-      fileReader.addEventListener('load', () => {
-        this.props.addFiles(fileData);
-        // fileReadData = fileReader.result;
-      });
-      fileReader.addEventListener('loadend', () => {
-        // fileReadData = fileReader.result;
-        // window.audioId = audioPlayer.play(fileReadData)
-      });
-      fileReader.readAsDataURL(file);
-    }
+  async getSelectedFiles({ target }) {
+    const { fileData } = await fileLoader(target);
+    this.props.addFiles(fileData);
+
+    console.log('fileLoader component',fileData);
   }
 
   render() {
