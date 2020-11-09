@@ -2,3 +2,5 @@ export const ADD_FILES = 'ADD_FILES';
 export const DELETE_FILES = 'DELETE_FILES';
 export const UPDATE_CURRENT_AUDIO = 'UPDATE_CURRENT_AUDIO';
 export const CLICKED = 'CLICKED';
+export const LOADED_FILES = 'LOADED_FILES';
+export const PLAY_PAUSE_BUTTON = 'PLAY_PAUSE_BUTTON';

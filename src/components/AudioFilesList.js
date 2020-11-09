@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { loadedFile } from '../redux/selector';
-import { updateClickedAudioItem } from '../redux/actions'
-import AudioUpdater,{ play } from '../controllers/playAudio'
+import { updateClickedAudioItem, playPauseButton } from '../redux/actions'
+import AudioUpdater from '../controllers/playAudio'
 import './style.css'
 
 const list = [
@@ -16,13 +16,14 @@ const list = [
 
 function onListClick(index) {
   console.log(this);
-  this.updateClickedAudioItem(index);
-  console.log(play);
+  this.updateClickedAudioItem(index + 1);
+  this.playPauseButton(true);
+  console.log(window.loadedFile);
   // play(window.loadedFile[0])
 }
 
-function getFileList({ props,files}) {
-  console.log(files,props);
+function getFileList({ props, files }) {
+  console.log(files, props);
   return files.map(({ fileName, index }) => {
     console.log(this);
     const bindedCallback = onListClick.bind(props, index);
@@ -60,4 +61,4 @@ const mapStateToProps = function (state) {
   return { files };
 }
 
-export default connect(mapStateToProps,{updateClickedAudioItem})(audioNameList);
+export default connect(mapStateToProps, { updateClickedAudioItem, playPauseButton })(audioNameList);

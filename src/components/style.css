@@ -43,3 +43,10 @@
     background-color: cornflowerblue;
     border-color: #673AB7;
 }
+
+.Volume {
+    display: flex;
+    shape-outside: padding-box;
+    justify-content: center;
+    /* height: 50px; */
+}

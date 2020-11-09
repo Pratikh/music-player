@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 // import { audioPlayer } from '../controllers/audioPlayer'
 import folderOpenIcon from '../svgButtonDesign/folder-open.svg'
-import { addFiles } from '../redux/actions';
+import { addFiles, loadFiles } from '../redux/actions';
 import fileLoader from '../controllers/fileInputeLoader'
 
 class FileOpenHandler extends React.Component {
@@ -22,10 +22,11 @@ class FileOpenHandler extends React.Component {
   }
 
   async getSelectedFiles({ target }) {
-    const { fileData } = await fileLoader(target);
+    const { fileData, loadedFiles } = await fileLoader(target);
     this.props.addFiles(fileData);
+    this.props.loadFiles(loadedFiles);
 
-    console.log('fileLoader component',fileData);
+    console.log('fileLoader component', fileData);
   }
 
   render() {
@@ -47,4 +48,4 @@ class FileOpenHandler extends React.Component {
   }
 }
 
-export default connect(null, { addFiles })(FileOpenHandler);
+export default connect(null, { addFiles, loadFiles })(FileOpenHandler);

@@ -4,15 +4,14 @@ class AudioPlayer {
   constructor() {
     this.hawlerInstance = [];
     this.audioPlayId = {};
+    this.audioObjectByIndex = {};
+    this.currentAudioId = null;
   }
 
-  play(url, onComplete, onError) {
+  play(fileData, onComplete, onError) {
+    console.log('In play method');
     const sound = new Howl({
-      src: url,
-      autoplay: false,
-      loop: false,
-      preload: true,
-      volume: 1,
+      src: fileData.src,
       format: 'mp4',
       onloaderror: () => {
         console.error('Audio file is not loaded');
@@ -33,11 +32,13 @@ class AudioPlayer {
         console.info('Muted');
       }
     });
-    let id = { id: null };
+    let id = null;
     sound.once('load', () => {
       console.log('here');
-      id.id = sound.play();
-      this.audioPlayId[id.id] = sound;
+      id = sound.play();
+      this.currentAudioId = id;
+      this.audioObjectByIndex[fileData.index] = sound;
+      this.audioPlayId[id] = sound;
     });
     sound.once('end', () => { this.onAudioEnd(id) });
     return id;// user need to save if he wants to stop it.
@@ -45,8 +46,8 @@ class AudioPlayer {
 
   // Once completed no need aobject ref
   onAudioEnd(id) {
-    console.log('IN onAudioEnd,,,,,deleting ID');
-    delete this.audioPlayId[id];
+    console.log('Audio ended');
+    // delete this.audioPlayId[id];
   }
 
   // should send id to stop needed audio
@@ -64,6 +65,10 @@ class AudioPlayer {
 
   resume(id) {
     this.audioPlayId[id].play();
+  }
+
+  get currentAudio(){
+    return this.audioPlayId[this.currentAudioId];
   }
 }
 
