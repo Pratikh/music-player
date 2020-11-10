@@ -1,39 +1,51 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { getCLickedItem } from '../redux/selector';
-
-import audioPlayer from '../controllers/audioPlayer';
 import './style.css'
-
-
-export function ProgressBar(props) {
-    return (
-        <div className='Progress'>
-            <input type="range" min="1" max="100" value={props.value} />
-            <h4>{value}</h4>
-        </div >
-    )
-}
-
-let value = 0;
-export function updateAnimation() {
-    // console.log(audioPlayer.currentAudio);
-    // value = audioPlayer.currentAudio.seek() / audioPlayer.currentAudio.duration();
-    // if (audioPlayer.currentAudio.playing()) {
-    //     requestAnimationFrame(updateAnimation);
-    // } else {
-    //     cancelAnimationFrame(updateAnimation);
-    // }
-}
+import { connect } from 'react-redux'
 
 function ProgressBarSetter(props) {
-    return (<ProgressBar value={value} />)
+    return (
+        <>
+            <div className='Progress'>
+                <div className='progressTimer'> <RemainingMinuts minut={props.remainingDuration.minut} /> <p>:</p> <RemainingSeconds seconds={props.remainingDuration.seconds}/></div>
+                <progress type="range" min="1" max="100" value={props.value} />
+                <div className='progressTimer'> <CurrentMinuts minut={props.currentDurartion.minut} /> <p>:</p> <CurrentSeconds seconds={props.currentDurartion.seconds}/></div>
+            </div >
+        </>
+    );
 }
 
-const mapPropsToState = function (state) {
+function RemainingSeconds(props) {
+    return (<>
+        <p>{props.seconds}</p>
+    </>)
+
+}
+
+function RemainingMinuts(props) {
+    return (<>
+        <p>{props.minut}</p>
+    </>)
+}
+
+function CurrentSeconds(props) {
+    return (<>
+        <p>{props.seconds}</p>
+    </>)
+}
+
+function CurrentMinuts(props) {
+    return (<>
+        <p>{props.minut}</p>
+    </>)
+}
+
+function mapPropsToState(state) {
     return {
-        clicked: getCLickedItem(state),
+        value: state.audioProgress.value,
+        currentDurartion: state.audioProgress.currentDurartion,
+        remainingDuration: state.audioProgress.remainingDuration,
     }
 }
 
-export default connect(mapPropsToState)(ProgressBarSetter)
+export default connect(mapPropsToState)(ProgressBarSetter);
+

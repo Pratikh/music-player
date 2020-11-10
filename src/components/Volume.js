@@ -8,12 +8,12 @@ export default function Volume() {
     function onChange({ target }) {
         const volume = target.value / 100;
         setValue(target.value);
-        audioPlayer.currentAudio.playing() && audioPlayer.currentAudio.volume(volume);
+        audioPlayer.currentAudio && audioPlayer.currentAudio.playing() && audioPlayer.currentAudio.volume(volume);
     }
     return (
         <div className='Volume'>
             <input type="range" min="1" max="100" value={value} onChange={onChange} />
-            <h4>{value}</h4>
+            <p>{value}</p>
         </div >
     )
 }

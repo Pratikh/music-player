@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
-import { getCLickedItem, getLoadedFiles } from '../redux/selector';
 import audioPlayer from './audioPlayer';
-import updateAnimation from '../components/ProgressBar.js';
+import { getCLickedItem, getLoadedFiles } from '../redux/selector';
+import { audioProgress, audioCurrentDurationUpdate, audioRemainingDurationUpdate } from '../redux/actions';
+import { updateState } from '../controllers/progressBarUpdater'
 
 export async function playAudios(audioFilesList) {
     for (let index = 0; index < audioFilesList.length; index++) {
@@ -10,23 +11,27 @@ export async function playAudios(audioFilesList) {
     }
 };
 
-export function play(audioFile) {
+async function play(audioFile, onStartCallbacks) {
+    console.log('In play method');
     const isAudioAlreadyPresent = audioPlayer.audioObjectByIndex[audioFile.index];
     if (audioPlayer.currentAudio) {
         audioPlayer.currentAudio.pause();
     }
     if (isAudioAlreadyPresent) {
         audioPlayer.currentAudioId = isAudioAlreadyPresent.play();
-        // updateAnimation();
+        audioPlayer.currentAudio.onStartCallBacks();
         return;
     }
-    return new Promise((reject, resolve) => {
-        audioPlayer.play(audioFile, resolve, reject);
-        updateAnimation();
-        // console.log(id);
-    }).catch(error => {
-        console.log('Got error', error);
-    });
+    try{
+        const onStartCallBacks = () => {
+            updateState(onStartCallbacks);
+        };
+        await audioPlayer.play(audioFile, onStartCallBacks);
+        audioPlayer.currentAudio.onStartCallBacks = onStartCallBacks;
+    }
+    catch(error){
+        console.log(error);
+    }
 }
 
 function getAudioRealtedData(props) {
@@ -38,7 +43,11 @@ function getAudioRealtedData(props) {
             src,
             index,
         }
-        play(playData)
+        play(playData, {
+            audioProgress: props.audioProgress,
+            audioCurrentDurationUpdate: props.audioCurrentDurationUpdate,
+            audioRemainingDurationUpdate: props.audioRemainingDurationUpdate
+        });
     }
     return (<></>);
 }
@@ -51,4 +60,8 @@ const mapStateToProps = function (state) {
 
 }
 
-export default connect(mapStateToProps)(getAudioRealtedData);
+export default connect(mapStateToProps, {
+    audioProgress,
+    audioCurrentDurationUpdate,
+    audioRemainingDurationUpdate
+})(getAudioRealtedData);
