@@ -4,13 +4,6 @@ import { getCLickedItem, getLoadedFiles } from '../redux/selector';
 import { audioProgress, audioCurrentDurationUpdate, audioRemainingDurationUpdate } from '../redux/actions';
 import { updateState } from '../controllers/progressBarUpdater'
 
-export async function playAudios(audioFilesList) {
-    for (let index = 0; index < audioFilesList.length; index++) {
-        const file = audioFilesList[index];
-        await play(file);
-    }
-};
-
 async function play(audioFile, onStartCallbacks) {
     console.log('In play method');
     const isAudioAlreadyPresent = audioPlayer.audioObjectByIndex[audioFile.index];
@@ -36,7 +29,7 @@ async function play(audioFile, onStartCallbacks) {
 
 function getAudioRealtedData(props) {
     console.log(props);
-    if (props.currentClickedItem) {
+    if (props.currentClickedItem && !!props.getLoadedFiles) {
         const index = props.currentClickedItem - 1;
         const src = props.getLoadedFiles[index];
         const playData = {

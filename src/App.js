@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AudioFilesList></AudioFilesList>
+        <AudioFilesList />
         <FileOpenHandler />
-        <ProgressBar value='0'/>
+        <ProgressBar value='0' />
         <div className="Audio-Controller">
           <PreviousAndNextButton type='previous' />
           <PlayButton />

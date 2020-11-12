@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import folderOpenIcon from '../svgButtonDesign/folder-open.svg'
 import { addFiles, loadFiles } from '../redux/actions';
 import fileLoader from '../controllers/fileInputeLoader'
+import './style.css'
 
 class FileOpenHandler extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class FileOpenHandler extends React.Component {
             event.currentTarget.value = null
           }}
           multiple accept='audio/*' />
-        <button onClick={this.onButtonClickHandler}>Open File</button>
+        <button className='fileButton' onClick={this.onButtonClickHandler}>Open File</button>
       </div>
     )
   }

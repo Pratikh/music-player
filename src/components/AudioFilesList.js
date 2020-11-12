@@ -18,8 +18,6 @@ function onListClick(index) {
   console.log(this);
   this.updateClickedAudioItem(index + 1);
   this.playPauseButton(true);
-  console.log(window.loadedFile);
-  // play(window.loadedFile[0])
 }
 
 function getFileList({ props, files }) {
@@ -36,8 +34,6 @@ function getFileList({ props, files }) {
 }
 
 function audioNameList(props) {
-  // console.log(audioUpdater);
-  console.log('PROPS', props.updateClickedAudioItem);
   const data = {
     props,
     files: props.files

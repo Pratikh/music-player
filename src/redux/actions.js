@@ -1,4 +1,7 @@
-import { ADD_FILES, DELETE_FILES, CLICKED, LOADED_FILES, PLAY_PAUSE_BUTTON, AUDIO_PROGRESS, CURRENT_DURATION, REMAINING_DURATION } from './actionTypes';
+import {
+    ADD_FILES, DELETE_FILES, CLICKED, LOADED_FILES, PLAY_PAUSE_BUTTON, AUDIO_PROGRESS, CURRENT_DURATION,
+    REMAINING_DURATION, AUIDO_VOLUME
+} from './actionTypes';
 
 export function addFiles(content) {
     console.log(content);
@@ -58,5 +61,13 @@ export function audioRemainingDurationUpdate(remainingDuration) {
     return {
         type: REMAINING_DURATION,
         remainingDuration,
+    }
+}
+
+export function audioVolumeUpdate(volume) {
+    console.log(volume);
+    return {
+        type: AUIDO_VOLUME,
+        volume,
     }
 }
