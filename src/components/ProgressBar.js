@@ -7,7 +7,7 @@ function ProgressBarSetter(props) {
         <>
             <div className='Progress'>
                 <div className='progressTimer'> <RemainingMinuts minut={props.remainingDuration.minut} /> <p>:</p> <RemainingSeconds seconds={props.remainingDuration.seconds}/></div>
-                <progress type="range" min="1" max="100" value={props.value} />
+                <progress type="range" min="1.5" max="100" value={props.value} />
                 <div className='progressTimer'> <CurrentMinuts minut={props.currentDurartion.minut} /> <p>:</p> <CurrentSeconds seconds={props.currentDurartion.seconds}/></div>
             </div >
         </>
