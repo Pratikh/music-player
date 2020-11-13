@@ -43,12 +43,11 @@ class AudioPlayer {
         resolve(id);
       });
       sound.once('end', () => { this.onAudioEnd(id) });
-      // return id;// user need to save if he wants to stop it.
 
     })
   }
 
-  // Once completed no need aobject ref
+  // Once completed no need a object ref
   onAudioEnd(id) {
     console.log('Audio ended');
     // delete this.audioPlayId[id];

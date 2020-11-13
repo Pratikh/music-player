@@ -12,15 +12,16 @@ function App() {
         <AudioFilesList />
         <FileOpenHandler />
         <ProgressBar value='0' />
+        <Volume />
         <div className="Audio-Controller">
           <PreviousAndNextButton type='previous' />
           <PlayButton />
           <PreviousAndNextButton type='next' />
         </div>
-        <Volume />
       </header>
     </div>
   );
 }
+
 
 export default App;

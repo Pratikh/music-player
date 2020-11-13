@@ -47,8 +47,7 @@
 .Volume {
     display: flex;
     shape-outside: padding-box;
-    justify-content: center;
-    /* height: 50px; */
+    /* justify-content: center; */
 }
 
 .Progress {
@@ -58,7 +57,9 @@
 }
 
 .progressTimer {
+    width: 10%;
     display: flex;
+    justify-content: center;
 }
 
 .fileButton {
@@ -71,4 +72,8 @@
 p {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+progress {
+    width: 100%;
 }
