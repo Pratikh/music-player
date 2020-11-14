@@ -3,7 +3,7 @@ import './App.css';
 import components from './components/index'
 
 const { PlayButton, PreviousAndNextButton,
-  FileOpenHandler, AudioFilesList, Volume, ProgressBar } = components
+  FileOpenHandler, AudioFilesList, Volume, ProgressBar, PlayingAudio } = components
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <PlayButton />
           <PreviousAndNextButton type='next' />
         </div>
+        <PlayingAudio />
       </header>
     </div>
   );

@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { Howl } from 'howler';
 
 class AudioPlayer {
@@ -8,7 +9,7 @@ class AudioPlayer {
     this.currentAudioId = null;
   }
 
-  play(fileData, onAudioStart) {
+  play(fileData, onAudioStart = _.noop) {
     console.log('In play method');
     return new Promise((resolve, reject) => {
       const sound = new Howl({
@@ -30,6 +31,9 @@ class AudioPlayer {
         },
         onmute: () => {
           console.info('Muted');
+        },
+        onseek:()=>{
+          console.log('on seek');
         }
       });
       let id = null;

@@ -1,6 +1,6 @@
 import {
     ADD_FILES, DELETE_FILES, CLICKED, LOADED_FILES, PLAY_PAUSE_BUTTON, AUDIO_PROGRESS, CURRENT_DURATION,
-    REMAINING_DURATION, AUIDO_VOLUME
+    REMAINING_DURATION, AUIDO_VOLUME, CLICKED_AUDIO_NAME
 } from './actionTypes';
 
 export function addFiles(content) {
@@ -44,6 +44,7 @@ export function playPauseButton(payload) {
 }
 
 export function audioProgress(value) {
+    console.log('heree');
     return {
         type: AUDIO_PROGRESS,
         value,
@@ -69,5 +70,13 @@ export function audioVolumeUpdate(volume) {
     return {
         type: AUIDO_VOLUME,
         volume,
+    }
+}
+
+export function currentClickedAudioName(payload) {
+    console.log(payload);
+    return {
+        type: CLICKED_AUDIO_NAME,
+        payload,
     }
 }

@@ -1,8 +1,9 @@
-import { CLICKED, LOADED_FILES } from '../actionTypes';
+import { CLICKED, LOADED_FILES, CLICKED_AUDIO_NAME } from '../actionTypes';
 
 const initialState = {
     currectClicked: null,
     loadedFile: null,
+    clickedAudioName:'click on list',
 }
 
 export default function currectClicked(state = initialState, { type, payload }) {
@@ -16,6 +17,11 @@ export default function currectClicked(state = initialState, { type, payload }) 
             return {
                 ...state,
                 loadedFile: payload
+            }
+        case CLICKED_AUDIO_NAME:
+            return {
+                ...state,
+                clickedAudioName: payload
             }
         default:
             return state;

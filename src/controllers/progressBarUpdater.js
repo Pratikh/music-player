@@ -1,14 +1,9 @@
 import audioPlayer from './audioPlayer';
-let copyCallback = null;
+import eventEmitter from './eventEmitter';
 
 export function updateState(callBackObject) {
-    if (isNaN(+callBackObject)) {
-        copyCallback = callBackObject;
-    }
     if (audioPlayer.currentAudio) {
-
-        const param = copyCallback ? copyCallback : callBackObject;
-        updateStateValues(param);
+        UpdateStateValues();
         if (audioPlayer.currentAudio.playing()) {
             requestAnimationFrame(updateState);
         } else {
@@ -17,9 +12,9 @@ export function updateState(callBackObject) {
     }
 }
 
-function updateStateValues({ audioProgress, audioCurrentDurationUpdate, audioRemainingDurationUpdate }) {
+function UpdateStateValues() {
     const value = audioPlayer.currentAudio.seek() * (100 / audioPlayer.currentAudio.duration());
-    audioProgress(value);
+    eventEmitter.emit('updateprogress', value);
 
     let minut = Math.floor(audioPlayer.currentAudio.seek() / 60) ? Math.floor(audioPlayer.currentAudio.seek() / 60) : 0;
     let seconds = Math.floor(audioPlayer.currentAudio.seek() - (minut * 60)) ? Math.floor(audioPlayer.currentAudio.seek() - (minut * 60)) : 0
@@ -27,7 +22,7 @@ function updateStateValues({ audioProgress, audioCurrentDurationUpdate, audioRem
         minut,
         seconds,
     };
-    audioCurrentDurationUpdate(currentDurartion)
+    eventEmitter.emit('audiocurrentduration', currentDurartion);
 
     minut = Math.floor(audioPlayer.currentAudio.duration() / 60);
     seconds = Math.floor(audioPlayer.currentAudio.duration() - (minut * 60))
@@ -35,5 +30,5 @@ function updateStateValues({ audioProgress, audioCurrentDurationUpdate, audioRem
         minut,
         seconds,
     };
-    audioRemainingDurationUpdate(remainingDuration)
+    eventEmitter.emit('audioremainingduration', remainingDuration);
 }

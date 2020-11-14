@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { loadedFile } from '../redux/selector';
-import { updateClickedAudioItem, playPauseButton } from '../redux/actions'
-import AudioUpdater from '../controllers/playAudio'
+import { updateClickedAudioItem, playPauseButton,currentClickedAudioName } from '../redux/actions'
+// import AudioUpdater from '../controllers/playAudio'
 import './style.css'
 
 const list = [
@@ -14,17 +14,18 @@ const list = [
   { fileName: 'first audio', index: 6 },
 ]
 
-function onListClick(index) {
+function onListClick(index,name) {
   console.log(this);
   this.updateClickedAudioItem(index + 1);
   this.playPauseButton(true);
+  this.currentClickedAudioName(name)
 }
 
 function getFileList({ props, files }) {
   console.log(files, props);
   return files.map(({ fileName, index }) => {
     console.log(this);
-    const bindedCallback = onListClick.bind(props, index);
+    const bindedCallback = onListClick.bind(props, index,fileName);
     return (
       <li className='List' key={index} onClick={bindedCallback}>
         {fileName}
@@ -44,7 +45,6 @@ function audioNameList(props) {
   }
   return (
     <div className='myBox'>
-      <AudioUpdater />
       <ol>
         {getFileList(props.files ? data : dataList)}
       </ol>
@@ -57,4 +57,4 @@ const mapStateToProps = function (state) {
   return { files };
 }
 
-export default connect(mapStateToProps, { updateClickedAudioItem, playPauseButton })(audioNameList);
+export default connect(mapStateToProps, { updateClickedAudioItem, playPauseButton,currentClickedAudioName })(audioNameList);

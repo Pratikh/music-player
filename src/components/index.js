@@ -3,8 +3,9 @@ import FileOpenHandler from './FileOpenHandler';
 import PlayButton from './PlayButton';
 import PreviousAndNextButton from './PreviousAndNextButton';
 import Volume from './Volume'
-
 import ProgressBar from './ProgressBar'
+import PlayingAudio from './PlayingAudio'
+
 
 const components = {
     AudioFilesList,
@@ -12,7 +13,8 @@ const components = {
     PlayButton,
     PreviousAndNextButton,
     Volume,
-    ProgressBar
+    ProgressBar,
+    PlayingAudio
 }
 
 export default components;

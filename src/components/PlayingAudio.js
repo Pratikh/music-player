@@ -1,28 +1,23 @@
 import { connect } from "react-redux";
-import audioPlayer from './audioPlayer';
-import { getCLickedItem, getLoadedFiles } from '../redux/selector';
+import audioPlayer from '../controllers/audioPlayer';
+import { getCLickedItem, getLoadedFiles, getCurrentAudioName } from '../redux/selector';
 import { audioProgress, audioCurrentDurationUpdate, audioRemainingDurationUpdate } from '../redux/actions';
 import { updateState } from '../controllers/progressBarUpdater'
 
-async function play(audioFile, onStartCallbacks) {
-    console.log('In play method');
+async function play(audioFile) {
     const isAudioAlreadyPresent = audioPlayer.audioObjectByIndex[audioFile.index];
     if (audioPlayer.currentAudio) {
         audioPlayer.currentAudio.pause();
     }
     if (isAudioAlreadyPresent) {
         audioPlayer.currentAudioId = isAudioAlreadyPresent.play();
-        audioPlayer.currentAudio.onStartCallBacks();
         return;
     }
-    try{
-        const onStartCallBacks = () => {
-            updateState(onStartCallbacks);
-        };
-        await audioPlayer.play(audioFile, onStartCallBacks);
-        audioPlayer.currentAudio.onStartCallBacks = onStartCallBacks;
+    try {
+        await audioPlayer.play(audioFile);
+        updateState();
     }
-    catch(error){
+    catch (error) {
         console.log(error);
     }
 }
@@ -42,15 +37,15 @@ function getAudioRealtedData(props) {
             audioRemainingDurationUpdate: props.audioRemainingDurationUpdate
         });
     }
-    return (<></>);
+    return (<div>{props.currentAudioName}</div>);
 }
 
 const mapStateToProps = function (state) {
     return {
         currentClickedItem: getCLickedItem(state),
         getLoadedFiles: getLoadedFiles(state),
+        currentAudioName: getCurrentAudioName(state),
     }
-
 }
 
 export default connect(mapStateToProps, {

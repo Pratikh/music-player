@@ -13,6 +13,8 @@ const initialState = {
 }
 
 export default function fileHandler(state = initialState, { type, value, currentDurartion, remainingDuration }) {
+    console.log('REDUCER');
+
     switch (type) {
         case AUDIO_PROGRESS:
             return {
