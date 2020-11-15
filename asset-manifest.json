@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/music-player/static/css/main.7dfc1614.chunk.css",
-    "main.js": "/music-player/static/js/main.cf45b282.chunk.js",
-    "main.js.map": "/music-player/static/js/main.cf45b282.chunk.js.map",
+    "main.js": "/music-player/static/js/main.e2aae878.chunk.js",
+    "main.js.map": "/music-player/static/js/main.e2aae878.chunk.js.map",
     "runtime-main.js": "/music-player/static/js/runtime-main.0f02f19c.js",
     "runtime-main.js.map": "/music-player/static/js/runtime-main.0f02f19c.js.map",
-    "static/js/2.9f662117.chunk.js": "/music-player/static/js/2.9f662117.chunk.js",
-    "static/js/2.9f662117.chunk.js.map": "/music-player/static/js/2.9f662117.chunk.js.map",
+    "static/js/2.5b5e07ff.chunk.js": "/music-player/static/js/2.5b5e07ff.chunk.js",
+    "static/js/2.5b5e07ff.chunk.js.map": "/music-player/static/js/2.5b5e07ff.chunk.js.map",
     "index.html": "/music-player/index.html",
     "static/css/main.7dfc1614.chunk.css.map": "/music-player/static/css/main.7dfc1614.chunk.css.map",
-    "static/js/2.9f662117.chunk.js.LICENSE.txt": "/music-player/static/js/2.9f662117.chunk.js.LICENSE.txt",
+    "static/js/2.5b5e07ff.chunk.js.LICENSE.txt": "/music-player/static/js/2.5b5e07ff.chunk.js.LICENSE.txt",
     "static/media/folder-open.610cbfaa.svg": "/music-player/static/media/folder-open.610cbfaa.svg",
     "static/media/pauseButton.cadf7947.svg": "/music-player/static/media/pauseButton.cadf7947.svg",
     "static/media/playButton.c49abbd7.svg": "/music-player/static/media/playButton.c49abbd7.svg",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0f02f19c.js",
-    "static/js/2.9f662117.chunk.js",
+    "static/js/2.5b5e07ff.chunk.js",
     "static/css/main.7dfc1614.chunk.css",
-    "static/js/main.cf45b282.chunk.js"
+    "static/js/main.e2aae878.chunk.js"
   ]
 }
