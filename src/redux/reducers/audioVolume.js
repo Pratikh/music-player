@@ -14,5 +14,4 @@ export default function audioVolume(state = initalState, { type, volume }) {
         default:
             return state;
     }
-
 }

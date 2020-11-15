@@ -4,7 +4,6 @@ import {
 } from './actionTypes';
 
 export function addFiles(content) {
-    console.log(content);
     return {
         type: ADD_FILES,
         payload: {
@@ -21,7 +20,6 @@ export function deleteFiles(content) {
 }
 
 export function updateClickedAudioItem(content) {
-    console.log(content);
     return {
         type: CLICKED,
         payload: content
@@ -36,7 +34,6 @@ export function loadFiles(content) {
 }
 
 export function playPauseButton(payload) {
-    console.log('payload  payloadpayload', payload);
     return {
         type: PLAY_PAUSE_BUTTON,
         payload,
@@ -44,7 +41,6 @@ export function playPauseButton(payload) {
 }
 
 export function audioProgress(value) {
-    console.log('heree');
     return {
         type: AUDIO_PROGRESS,
         value,
@@ -66,7 +62,6 @@ export function audioRemainingDurationUpdate(remainingDuration) {
 }
 
 export function audioVolumeUpdate(volume) {
-    console.log(volume);
     return {
         type: AUIDO_VOLUME,
         volume,
@@ -74,7 +69,6 @@ export function audioVolumeUpdate(volume) {
 }
 
 export function currentClickedAudioName(payload) {
-    console.log(payload);
     return {
         type: CLICKED_AUDIO_NAME,
         payload,

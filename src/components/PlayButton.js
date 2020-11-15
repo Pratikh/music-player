@@ -19,7 +19,6 @@ class PlayButton extends React.Component {
     } else {
       audioPlayer.currentAudio.play();
       audioPlayer.currentAudio.onStartCallBacks && audioPlayer.currentAudio.onStartCallBacks();
-
     }
   }
 

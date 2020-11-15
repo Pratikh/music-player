@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import audioPlayer from '../controllers/audioPlayer';
 import './style.css'
-import { getVolume  } from '../redux/selector';
-import { audioVolumeUpdate  } from '../redux/actions';
+import { getVolume } from '../redux/selector';
+import { audioVolumeUpdate } from '../redux/actions';
 
- function Volume(props) {
+function Volume(props) {
     function onChange({ target }) {
         const volume = target.value / 100;
         props.audioVolumeUpdate(target.value);
@@ -19,10 +19,10 @@ import { audioVolumeUpdate  } from '../redux/actions';
     )
 }
 
-const mapStateToProps = function(state){
+const mapStateToProps = function (state) {
     return {
         volume: getVolume(state),
     }
 }
 
-export default connect(mapStateToProps,{ audioVolumeUpdate })(Volume);
+export default connect(mapStateToProps, { audioVolumeUpdate })(Volume);

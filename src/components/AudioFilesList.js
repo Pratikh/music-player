@@ -1,31 +1,27 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { loadedFile } from '../redux/selector';
-import { updateClickedAudioItem, playPauseButton,currentClickedAudioName } from '../redux/actions'
-// import AudioUpdater from '../controllers/playAudio'
+import { updateClickedAudioItem, playPauseButton, currentClickedAudioName } from '../redux/actions'
 import './style.css'
 
 const list = [
   { fileName: 'first audio', index: 1 },
-  { fileName: 'first audio', index: 2 },
-  { fileName: 'first audio', index: 3 },
-  { fileName: 'first audio', index: 4 },
-  { fileName: 'first audio', index: 5 },
-  { fileName: 'first audio', index: 6 },
+  { fileName: 'second audio', index: 2 },
+  { fileName: 'third audio', index: 3 },
+  { fileName: 'fourth audio', index: 4 },
+  { fileName: 'fifth audio', index: 5 },
+  { fileName: 'sixth audio', index: 6 },
 ]
 
-function onListClick(index,name) {
-  console.log(this);
+function onListClick(index, name) {
   this.updateClickedAudioItem(index + 1);
   this.playPauseButton(true);
   this.currentClickedAudioName(name)
 }
 
 function getFileList({ props, files }) {
-  console.log(files, props);
   return files.map(({ fileName, index }) => {
-    console.log(this);
-    const bindedCallback = onListClick.bind(props, index,fileName);
+    const bindedCallback = onListClick.bind(props, index, fileName);
     return (
       <li className='List' key={index} onClick={bindedCallback}>
         {fileName}
@@ -57,4 +53,4 @@ const mapStateToProps = function (state) {
   return { files };
 }
 
-export default connect(mapStateToProps, { updateClickedAudioItem, playPauseButton,currentClickedAudioName })(audioNameList);
+export default connect(mapStateToProps, { updateClickedAudioItem, playPauseButton, currentClickedAudioName })(audioNameList);

@@ -8,34 +8,33 @@ class AssetLoader {
         window.data = data;
     }
 
-    async loading(name,result){
+    async loading(name, result) {
         const blobData = await result.blob();
         const loadedData = {
             name,
-            data:blobData
+            data: blobData
         }
         this.loadedAssets.push(loadedData);
-        console.log('aaa')
     }
 
     async loadAsset(callback = _.noop) {
         const allFetchPromis = [];
 
-        _.forEach(data,album => {
+        _.forEach(data, album => {
             album.forEach(({ url, name }) => {
-                const bindedFunction = this.loading.bind(this,name);
+                const bindedFunction = this.loading.bind(this, name);
                 allFetchPromis.push(
                     fetch(url, {
                         cache: 'force-cache',
                     }).then(bindedFunction));
             })
         });
-        try{
+        try {
             await Promise.all(allFetchPromis);
             console.log('FETCHED ALL ASSETS');
             callback();
-        }catch(error){
-            console.error('Got this error:::SORRY ',error)
+        } catch (error) {
+            console.error('Got this error:::SORRY ', error)
         }
     }
 }

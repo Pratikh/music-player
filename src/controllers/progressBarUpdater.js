@@ -1,7 +1,7 @@
 import audioPlayer from './audioPlayer';
 import eventEmitter from './eventEmitter';
 
-export function updateState(callBackObject) {
+export function updateState() {
     if (audioPlayer.currentAudio) {
         UpdateStateValues();
         if (audioPlayer.currentAudio.playing()) {

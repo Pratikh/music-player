@@ -17,11 +17,11 @@ class AudioPlayer {
         format: 'mp4',
         onloaderror: () => {
           console.error('Audio file is not loaded');
-          reject();
+          reject('Audio file is not loaded');
         },
         onplayerror: () => {
           console.error('On play error');
-          reject();
+          reject('On play error');
         },
         onplay: () => {
           console.info('Audio started playing');
@@ -32,7 +32,7 @@ class AudioPlayer {
         onmute: () => {
           console.info('Muted');
         },
-        onseek:()=>{
+        onseek: () => {
           console.log('on seek');
         }
       });

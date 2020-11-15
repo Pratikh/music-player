@@ -4,7 +4,8 @@ import './style.css'
 
 function ProgressBarSetter() {
     const [value, setValue] = useState(0);
-    useEffect(() => {
+
+    function onComponentChange() {
         const valueUpdate = (emittedValue) => {
             setValue(emittedValue);
         }
@@ -12,7 +13,9 @@ function ProgressBarSetter() {
         return function cleanup() {
             eventEmitter.removeListener('updateprogress', valueUpdate)
         }
-    }, [value])
+    }
+
+    useEffect(onComponentChange, [value]);
     return (
         <>
             <div className='Progress'>
@@ -34,8 +37,7 @@ function ProgressBarSetter() {
 
 function RemainingSeconds() {
     const [remainSeconds, setRemainSeconds] = useState(0);
-
-    useEffect(() => {
+    function onChange() {
         const remainingTimer = ({
             minut,
             seconds,
@@ -46,7 +48,9 @@ function RemainingSeconds() {
         return function cleanup() {
             eventEmitter.removeListener('audioremainingduration', remainingTimer)
         }
-    }, [remainSeconds]);
+    }
+
+    useEffect(onChange, [remainSeconds]);
     return (<>
         <p>{remainSeconds}</p>
     </>)
@@ -55,7 +59,7 @@ function RemainingSeconds() {
 
 function RemainingMinuts() {
     const [remainMinut, setRemainMinut] = useState(0);
-    useEffect(() => {
+    function onChange() {
         const remainingTimer = ({
             minut,
         }) => {
@@ -65,7 +69,9 @@ function RemainingMinuts() {
         return function cleanup() {
             eventEmitter.removeListener('audioremainingduration', remainingTimer)
         }
-    }, [setRemainMinut]);
+    }
+
+    useEffect(onChange, [setRemainMinut]);
     return (<>
         <p>{remainMinut}</p>
     </>)
@@ -73,7 +79,7 @@ function RemainingMinuts() {
 
 function CurrentSeconds() {
     const [currentSeconds, setCurrentSeconds] = useState(0);
-    useEffect(() => {
+    function onChange() {
         const remainingTimer = ({
             seconds,
         }) => {
@@ -83,7 +89,9 @@ function CurrentSeconds() {
         return function cleanup() {
             eventEmitter.removeListener('audiocurrentduration', remainingTimer)
         }
-    }, [currentSeconds]);
+    }
+
+    useEffect(onChange, [currentSeconds]);
     return (<>
         <p>{currentSeconds}</p>
     </>)
@@ -91,7 +99,7 @@ function CurrentSeconds() {
 
 function CurrentMinuts() {
     const [currentMinut, setCurrentMinut] = useState(0);
-    useEffect(() => {
+    function onChange() {
         const remainingTimer = ({
             minut,
         }) => {
@@ -101,7 +109,9 @@ function CurrentMinuts() {
         return function cleanup() {
             eventEmitter.removeListener('audiocurrentduration', remainingTimer)
         }
-    }, [setCurrentMinut]);
+    }
+
+    useEffect(onChange, [setCurrentMinut]);
     return (<>
         <p>{currentMinut}</p>
     </>)

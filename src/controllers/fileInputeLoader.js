@@ -24,7 +24,6 @@ async function loadFile(inputTarget) {
         promiseArr.push(loadThisFile(file, i));
     }
     const loadedFiles = await Promise.all(promiseArr);
-    window.loadedFiles = loadedFiles;
     return { loadedFiles, fileData: fileNamesData };
 }
 
