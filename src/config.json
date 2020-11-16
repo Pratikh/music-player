@@ -1,14 +1,24 @@
 {
-    "Smile": [
+    "Bhool Bhulaiyaa (2007)": [
         {
-            "name": "Champagne Problems",
-            "url": "https://res.cloudinary.com/djcffe77b/video/upload/v1605266304/songs/Champagne_Problems_p35spc.mp3"
-        }
-    ],
-    "Smile2": [
+            "name": "Alla Hafiz-(Pagalworld.fm).mp3",
+            "url": "/Hindi%20Songs/2007/Bhool%20Bhulaiyaa%20%282007%29-Pagalworld.fm/Alla%20Hafiz-%28Pagalworld.fm%29.mp3",
+            "index": 1
+        },
         {
-            "name": "Champagne Problems",
-            "url": "https://res.cloudinary.com/djcffe77b/video/upload/v1605266304/songs/Champagne_Problems_p35spc.mp3"
+            "name": "Bhool Bhulaiyaa-(Pagalworld.fm).mp3",
+            "url": "/Hindi%20Songs/2007/Bhool%20Bhulaiyaa%20%282007%29-Pagalworld.fm/Bhool%20Bhulaiyaa-%28Pagalworld.fm%29.mp3",
+            "index": 2
+        },
+        {
+            "name": "Labon Ko -(Pagalworld.fm).mp3",
+            "url": "/Hindi%20Songs/2007/Bhool%20Bhulaiyaa%20%282007%29-Pagalworld.fm/Labon%20Ko%20-%28Pagalworld.fm%29.mp3",
+            "index": 3
+        },
+        {
+            "name": "Mere Dholna -(Pagalworld.fm).mp3",
+            "url": "/Hindi%20Songs/2007/Bhool%20Bhulaiyaa%20%282007%29-Pagalworld.fm/Mere%20Dholna%20-%28Pagalworld.fm%29.mp3",
+            "index": 4
         }
     ]
 }

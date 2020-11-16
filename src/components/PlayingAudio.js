@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import audioPlayer from '../controllers/audioPlayer';
-import { getCLickedItem, getLoadedFiles, getCurrentAudioName } from '../redux/selector';
+import { getCLickedItem, loadedFile, getCurrentAudioName } from '../redux/selector';
 import { updateState } from '../controllers/progressBarUpdater'
 
 async function play(audioFile) {
@@ -22,9 +22,11 @@ async function play(audioFile) {
 }
 
 function getAudioRealtedData(props) {
-    if (props.currentClickedItem && !!props.getLoadedFiles) {
-        const index = props.currentClickedItem - 1;
-        const src = props.getLoadedFiles[index];
+    console.log('In playing function',props.currentClickedItem,!!props.currentClickedItem ,!!props.loadedFile);
+    if (!!props.currentClickedItem && !!props.loadedFile) {
+        const index = (+props.currentClickedItem);
+        const { data: src, fileName } = props.loadedFile[index];
+        console.log(props.loadedFile, index, fileName);
         const playData = {
             src,
             index,
@@ -37,7 +39,7 @@ function getAudioRealtedData(props) {
 const mapStateToProps = function (state) {
     return {
         currentClickedItem: getCLickedItem(state),
-        getLoadedFiles: getLoadedFiles(state),
+        loadedFile: loadedFile(state),
         currentAudioName: getCurrentAudioName(state),
     }
 }

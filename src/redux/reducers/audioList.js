@@ -1,7 +1,7 @@
 import { CLICKED, LOADED_FILES, CLICKED_AUDIO_NAME } from '../actionTypes';
 
 const initialState = {
-    currectClicked: null,
+    currectClicked: '',
     loadedFile: null,
     clickedAudioName: 'click on list',
 }

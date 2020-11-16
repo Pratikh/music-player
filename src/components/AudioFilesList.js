@@ -14,16 +14,18 @@ const list = [
 ]
 
 function onListClick(index, name) {
-  this.updateClickedAudioItem(index + 1);
+  this.updateClickedAudioItem('' + (index - 1));
   this.playPauseButton(true);
   this.currentClickedAudioName(name)
 }
 
 function getFileList({ props, files }) {
-  return files.map(({ fileName, index }) => {
-    const bindedCallback = onListClick.bind(props, index, fileName);
+  console.log(files);
+  let i = 1;
+  return files.map(({ fileName}) => {
+    const bindedCallback = onListClick.bind(props, i, fileName);
     return (
-      <li className='List' key={index} onClick={bindedCallback}>
+      <li className='List' key={i++} onClick={bindedCallback}>
         {fileName}
       </li>
     );

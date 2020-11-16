@@ -1,5 +1,5 @@
 let fileNamesData = [];
-function loadThisFile(fileData, index) {
+export function loadThisFile(fileData, index) {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.addEventListener('load', () => {

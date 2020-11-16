@@ -1,28 +1,33 @@
 import _ from 'lodash'
+import { loadThisFile } from './fileInputeLoader'
 const data = require('../config.json');
 
 class AssetLoader {
     constructor() {
         this.loadedAssets = [];
+        this.fileData = [];
+        this.loadedFiles = [];
         window.loadedAssets = this.loadedAssets;
         window.data = data;
     }
 
-    async loading(name, result) {
+    async loading(name, index, result) {
         const blobData = await result.blob();
-        const loadedData = {
-            name,
-            data: blobData
-        }
-        this.loadedAssets.push(loadedData);
+        const urlResult = await loadThisFile(blobData, index)
+
+        this.fileData.push({
+            fileName: name,
+            index,
+            data: urlResult
+        });
     }
 
     async loadAsset(callback = _.noop) {
         const allFetchPromis = [];
 
         _.forEach(data, album => {
-            album.forEach(({ url, name }) => {
-                const bindedFunction = this.loading.bind(this, name);
+            album.forEach(({ url, name, index }) => {
+                const bindedFunction = this.loading.bind(this, name, index);
                 allFetchPromis.push(
                     fetch(url, {
                         cache: 'force-cache',

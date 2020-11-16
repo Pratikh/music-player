@@ -10,7 +10,7 @@ class AudioPlayer {
   }
 
   play(fileData, onAudioStart = _.noop) {
-    console.log('In play method');
+    console.log('In play method',fileData);
     return new Promise((resolve, reject) => {
       const sound = new Howl({
         src: fileData.src,

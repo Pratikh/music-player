@@ -1,11 +1,17 @@
+import { connect } from 'react-redux';
 import './App.css';
-
 import components from './components/index'
+import filePreloader from './controllers/filePreloader'
+import { addFiles, loadFiles } from './redux/actions';
 
 const { PlayButton, PreviousAndNextButton,
   FileOpenHandler, AudioFilesList, Volume, ProgressBar, PlayingAudio } = components
 
-function App() {
+function App(props) {
+  filePreloader.loadAsset(()=>{
+    props.addFiles(filePreloader.fileData);
+    // props.loadFiles(filePreloader.loadedFiles);
+  });
   return (
     <div className="App">
       <header className="App-header">
@@ -25,4 +31,4 @@ function App() {
 }
 
 
-export default App;
+export default connect(null, { addFiles, loadFiles })(App);
