@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { loadThisFile } from './fileInputeLoader'
+
 const data = require('../config.json');
 
 class AssetLoader {
@@ -11,13 +11,26 @@ class AssetLoader {
         window.data = data;
     }
 
+    consverToBlobData(fileData) {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.addEventListener('load', () => {
+                const fileReadData = fileReader.result;
+                resolve(fileReadData);
+            });
+            fileReader.addEventListener('error', () => {
+                reject(`Something error in file loading :: STATE: ${fileReader.readyState}`);
+            });
+            fileReader.readAsDataURL(fileData);
+        })
+    }
+
     async loading(name, index, result) {
         const blobData = await result.blob();
-        const urlResult = await loadThisFile(blobData, index)
+        const urlResult = await this.consverToBlobData(blobData)
 
         this.fileData.push({
             fileName: name,
-            index,
             data: urlResult
         });
     }

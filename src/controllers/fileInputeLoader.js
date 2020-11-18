@@ -7,8 +7,9 @@ export function loadThisFile(fileData, index) {
             fileNamesData.push({
                 fileName: fileData.name,
                 index,
+                data:fileReadData
             })
-            resolve(fileReadData);
+            resolve();
         });
         fileReader.addEventListener('error', () => {
             reject(`Something error in file loading :: STATE: ${fileReader.readyState}`);
@@ -23,8 +24,10 @@ async function loadFile(inputTarget) {
         const file = inputTarget.files.item(i);
         promiseArr.push(loadThisFile(file, i));
     }
-    const loadedFiles = await Promise.all(promiseArr);
-    return { loadedFiles, fileData: fileNamesData };
+   await Promise.all(promiseArr);
+    console.log('fileDatafileDatafileDatafileData',fileNamesData,inputTarget.files.length);
+    return { fileData: fileNamesData };
 }
+window.fileNamesData = fileNamesData;
 
 export default loadFile;

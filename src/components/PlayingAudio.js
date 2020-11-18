@@ -22,10 +22,11 @@ async function play(audioFile) {
 }
 
 function getAudioRealtedData(props) {
-    console.log('In playing function',props.currentClickedItem,!!props.currentClickedItem ,!!props.loadedFile);
+    console.log('In playing function', props.currentClickedItem, !!props.currentClickedItem, !!props.loadedFile);
     if (!!props.currentClickedItem && !!props.loadedFile) {
         const index = (+props.currentClickedItem);
         const { data: src, fileName } = props.loadedFile[index];
+        console.log(src, index, fileName);
         console.log(props.loadedFile, index, fileName);
         const playData = {
             src,

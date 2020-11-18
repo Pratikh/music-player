@@ -18,10 +18,9 @@ class FileOpenHandler extends Component {
   }
 
   async getSelectedFiles({ target }) {
-    const { fileData, loadedFiles } = await fileLoader(target);
+    console.log('getSelectedFiles');
+    const { fileData } = await fileLoader(target);
     this.props.addFiles(fileData);
-    this.props.loadFiles(loadedFiles);
-
     console.log('In FileOpenHandler: loaded files', fileData);
   }
 

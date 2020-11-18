@@ -41,10 +41,11 @@ function audioNameList(props) {
     props,
     files: list
   }
+  const files = props.files ? data : dataList
   return (
     <div className='myBox'>
       <ol>
-        {getFileList(props.files ? data : dataList)}
+        {getFileList(files)}
       </ol>
     </div>
   );
