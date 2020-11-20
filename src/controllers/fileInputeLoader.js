@@ -25,7 +25,6 @@ async function loadFile(inputTarget) {
         promiseArr.push(loadThisFile(file, i));
     }
    await Promise.all(promiseArr);
-    console.log('fileDatafileDatafileDatafileData',fileNamesData,inputTarget.files.length);
     return { fileData: fileNamesData };
 }
 window.fileNamesData = fileNamesData;

@@ -10,7 +10,6 @@ const { PlayButton, PreviousAndNextButton,
 function App(props) {
   filePreloader.loadAsset(()=>{
     props.addFiles(filePreloader.fileData);
-    // props.loadFiles(filePreloader.loadedFiles);
   });
   return (
     <div className="App">

@@ -7,8 +7,6 @@ class AssetLoader {
         this.loadedAssets = [];
         this.fileData = [];
         this.loadedFiles = [];
-        window.loadedAssets = this.loadedAssets;
-        window.data = data;
     }
 
     consverToBlobData(fileData) {

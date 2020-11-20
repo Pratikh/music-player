@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import playButton from '../svgButtonDesign/playButton.svg'
 import pauseButton from '../svgButtonDesign/pauseButton.svg'
 import audioPlayer from '../controllers/audioPlayer';
@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { playPauseButton } from '../redux/actions'
 
 
-class PlayButton extends React.Component {
+class PlayButton extends Component {
   constructor(props) {
     super(props);
     this.handleButtonClick = this.clickedOnButton.bind(this);

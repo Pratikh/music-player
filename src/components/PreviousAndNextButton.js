@@ -8,15 +8,11 @@ import { getCLickedItem, loadedFile, getCurrentAudioName } from '../redux/select
 class PreviousAndNextButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      toggle: true,
-    }
     this.handleButtonClick = this.clickedOnButton.bind(this);
   }
 
   clickedOnButton() {
     const { type } = this.props;
-    console.log('Clicked', this.props);
     if (audioPlayer.currentAudio) {
       audioPlayer.currentAudio.pause();
     }
@@ -27,7 +23,6 @@ class PreviousAndNextButton extends React.Component {
     } else if (this.props.currentClickedItem < this.props.loadedFile.length && type === 'next') {
       index++;
     }
-    console.log(index,this.props.currentClickedItem < this.props.loadedFile.length);
     fileName = this.props.loadedFile[index].fileName;
     this.props.updateClickedAudioItem(index);
     this.props.currentClickedAudioName(fileName);

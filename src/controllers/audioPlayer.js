@@ -10,7 +10,6 @@ class AudioPlayer {
   }
 
   play(fileData, onAudioStart = _.noop) {
-    console.log('In play method',fileData);
     return new Promise((resolve, reject) => {
       const sound = new Howl({
         src: fileData.src,
@@ -42,7 +41,6 @@ class AudioPlayer {
         this.currentAudioId = id;
         this.audioObjectByIndex[fileData.index] = sound;
         this.audioPlayId[id] = sound;
-        console.log('in load ID', id);
         onAudioStart();
         resolve(id);
       });

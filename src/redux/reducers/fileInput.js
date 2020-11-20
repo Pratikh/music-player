@@ -10,7 +10,6 @@ export default function fileHandler(state = initialState, { type, payload }) {
         case ADD_FILES:
             return {
                 ...state,
-                // files: payload.files
                 files: [
                     ...state.files,
                     ...payload.files

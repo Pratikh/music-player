@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { loadedFile } from '../redux/selector';
 import { updateClickedAudioItem, playPauseButton, currentClickedAudioName } from '../redux/actions'
 import './style.css'
+let i = 1;
 
 const list = [
   { fileName: 'first audio', index: 1 },
@@ -20,8 +21,6 @@ function onListClick(index, name) {
 }
 
 function getFileList({ props, files }) {
-  console.log(files);
-  let i = 1;
   return files.map(({ fileName}) => {
     const bindedCallback = onListClick.bind(props, i, fileName);
     return (
