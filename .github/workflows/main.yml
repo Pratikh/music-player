@@ -22,9 +22,6 @@ jobs:
       - name: Installing packages
         run: npm install
 
-      - name: Runing linters
-        uses: wearerequired/lint-action@v1
-
       - name: Building
         run: npm run build
 
