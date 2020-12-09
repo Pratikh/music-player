@@ -3,7 +3,7 @@
   "homepage": "https://pratikh.github.io/music-player",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://www.pmusiq.info",
+  "proxy": "https://res.cloudinary.com",
   "dependencies": {
     "howler": "^2.2.0",
     "lodash": "^4.17.20",

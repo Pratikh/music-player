@@ -38,6 +38,7 @@ class AssetLoader {
 
         _.forEach(data, album => {
             album.forEach(({ url, name, index }) => {
+                console.log(' Loading file ');
                 const bindedFunction = this.loading.bind(this, name, index);
                 allFetchPromis.push(
                     fetch(url, {
