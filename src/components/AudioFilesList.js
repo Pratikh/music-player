@@ -15,20 +15,25 @@ const list = [
 ]
 
 function onListClick(index, name) {
+  console.log(index);
   this.updateClickedAudioItem('' + (index - 1));
   this.playPauseButton(true);
   this.currentClickedAudioName(name)
 }
 
 function getFileList({ props, files }) {
-  return files.map(({ fileName}) => {
+  console.log(files);
+  const listOfFileName = files.map(({ fileName }) => {
     const bindedCallback = onListClick.bind(props, i, fileName);
+    console.log(i, fileName);
     return (
       <li className='List' key={i++} onClick={bindedCallback}>
         {fileName}
       </li>
     );
-  })
+  });
+  i = 0;
+  return listOfFileName;
 }
 
 function audioNameList(props) {

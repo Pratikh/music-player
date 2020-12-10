@@ -20,6 +20,7 @@ export function loadThisFile(fileData, index) {
 
 async function loadFile(inputTarget) {
     let promiseArr = [];
+    fileNamesData = []; // Resetting array data.
     for (let i = 0; i < inputTarget.files.length; i++) {
         const file = inputTarget.files.item(i);
         promiseArr.push(loadThisFile(file, i));

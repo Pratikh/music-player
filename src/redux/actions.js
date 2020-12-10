@@ -3,11 +3,12 @@ import {
     REMAINING_DURATION, AUIDO_VOLUME, CLICKED_AUDIO_NAME
 } from './actionTypes';
 
-export function addFiles(content) {
+export function addFiles({files,isFilesLoaded}) {
     return {
         type: ADD_FILES,
         payload: {
-            files: content
+            files,
+            isFilesLoaded
         }
     }
 }

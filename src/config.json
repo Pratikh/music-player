@@ -1,24 +1,12 @@
 {
     "Katy Perry - Smile (2020)": [
         {
-            "name": "High_On_Your_Supply_Target_Exclusive",
+            "name": "High on your supply target exclusive",
             "url": "https://res.cloudinary.com/djcffe77b/video/upload/q_10/v1607516798/songs/High_On_Your_Supply_Target_Exclusive_it0sp4.mp3"
         },
         {
-            "name": "Only_Love",
+            "name": "Only love",
             "url": "https://res.cloudinary.com/djcffe77b/video/upload/q_10/v1607516794/songs/Only_Love_crjzwo.mp3"
-        },
-        {
-            "name": "What_Makes_A_Woman",
-            "url": "https://res.cloudinary.com/djcffe77b/video/upload/q_10/v1607516793/songs/What_Makes_A_Woman_uxyym7.mp3"
-        },
-        {
-            "name": "Harleys_In_Hawaii",
-            "url": "https://res.cloudinary.com/djcffe77b/video/upload/q_10/v1607516793/songs/Harleys_In_Hawaii_rhlan5.mp3"
-        },
-        {
-            "name": "Champagne_Problems",
-            "url": "https://res.cloudinary.com/djcffe77b/video/upload/q_10/v1607516790/songs/Champagne_Problems_jozjrc.mp3"
         }
     ]
 }

@@ -3,14 +3,32 @@ import './App.css';
 import components from './components/index'
 import filePreloader from './controllers/filePreloader'
 import { addFiles, loadFiles } from './redux/actions';
+import Loader from 'react-loader-spinner'
 
-const { PlayButton, PreviousAndNextButton,
-  FileOpenHandler, AudioFilesList, Volume, ProgressBar, PlayingAudio } = components
+let isRenderedOnce = false;
 
-function App(props) {
-  filePreloader.loadAsset(()=>{
-    props.addFiles(filePreloader.fileData);
-  });
+const {
+  PlayButton,
+  PreviousAndNextButton,
+  FileOpenHandler,
+  AudioFilesList,
+  Volume,
+  ProgressBar,
+  PlayingAudio } = components
+
+function Spinner(props) {
+  return (
+    <Loader
+      className="Center-content-to-screen"
+      type="Circles"
+      color="#00BFFF"
+      height={80}
+      width={80}
+      visible={!props.isFilesLoaded}
+    />)
+}
+
+function appBody() {
   return (
     <div className="App">
       <header className="App-header">
@@ -29,5 +47,25 @@ function App(props) {
   );
 }
 
+function App(props) {
+  if (!isRenderedOnce) {
+    isRenderedOnce = true;
+    filePreloader.loadAsset(() => {
+      props.addFiles({ files: filePreloader.fileData, isFilesLoaded: true });
+    });
+  }
+  const spinner = props.isFilesLoaded ? appBody() : Spinner(props)
+  return (
+    <div>
+      {spinner}
+    </div>
+  );
+}
 
-export default connect(null, { addFiles, loadFiles })(App);
+function mapStateToProps(state) {
+  return {
+    isFilesLoaded: state.fileInput.isFilesLoaded,
+  }
+}
+
+export default connect(mapStateToProps, { addFiles, loadFiles })(App);
